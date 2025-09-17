@@ -1,0 +1,40 @@
+{
+  "pipeline_id": "c7472558-3a77-4f48-b99b-e3ddbc0a41e3",
+  "name": "Gold Pipeline DLT",
+  "allow_duplicate_names": true,
+  "target": "jp_assessment.latam_lab_gold",
+  "storage": "/mnt/dlt/jp_assessment/gold",
+  "clusters": [
+    {
+      "label": "default",
+      "spark_conf": {
+        "spark.databricks.delta.deletionVectors.enabled": "true"
+      }
+    }
+  ],
+  "libraries": [
+    {
+      "python": {
+        "path": "/Workspace/Users/juan.godoy@perficient.com/bakehouse-assessment/dlt_pipeline/gold_pipeline.py"
+      }
+    }
+  ],
+  "pipeline_config": {
+    "continuous": false,
+    "pipeline_mode": "BATCH"
+  },
+  "schedule": {
+    "quartz_cron_expression": "0 0 8 ? * MON-FRI",
+    "timezone_id": "America/New_York"
+  },
+  "timeout_seconds": 1200,
+  "email_notifications": {
+    "on_start": [],
+    "on_success": [
+      "juan.godoy@perficient.com"
+    ],
+    "on_failure": [
+      "juan.godoy@perficient.com"
+    ]
+  }
+}
