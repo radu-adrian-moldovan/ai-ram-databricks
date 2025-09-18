@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    Silver_sparknotebook_job:
+      name: Silver_sparknotebook_job
+      tasks:
+        - task_key: silver_task
+          notebook_task:
+            notebook_path: /Repos/ram/ai-ram-databricks/demo/v2/Notebooks/03_Silver
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
